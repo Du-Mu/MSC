@@ -5,6 +5,15 @@ from PIL import Image
 
 raw_path = './dataset/malimg_dataset/malimg_paper_dataset_imgs/'
 
+
+if not os.path.isdir('./classed_dataset'):
+    os.mkdir('./classed_dataset')
+if not os.path.isdir('./classed_dataset/trainning_data/'):
+    os.mkdir('./classed_dataset/trainning_data/')
+if not os.path.isdir('./classed_dataset/test_data/'):
+    os.mkdir('./classed_dataset/test_data/')
+
+
 for i in os.listdir(raw_path):
     if not os.path.isdir(raw_path+i):
         continue
@@ -22,7 +31,7 @@ for i in os.listdir(raw_path):
         f'./classed_dataset/test_data/{i}/{imgs[j]}']
 
         img = Image.open(src_path)
-        img = img.resize((64,64), Image.ANTIALIAS)
+        img = img.resize((64,64), Image.Resampling.LANCZOS )
 
         if j > len(imgs)*3/10:
             img.save(dst_path[0])

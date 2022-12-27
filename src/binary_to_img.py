@@ -9,7 +9,7 @@ def get_image(input_dir, output_dir, filename):
     out_path = os.path.splitext(os.path.basename(filename))[0] + '.png'
     out_file_full = output_dir + out_path
     input_file_path = os.path.join(input_dir, filename)
-    print("out_file_full: ", out_file_full)
+    print("the full path of out file: ", out_file_full)
     if os.access(filename, os.X_OK):
         f = open(input_file_path, 'rb')
         file_size = os.path.getsize(input_file_path)  
